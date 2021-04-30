@@ -18,7 +18,7 @@
 
     <junit.version>4.12</junit.version>
     <logback.version>1.1.6</logback.version>
-    <mockito.version>2.0.79-beta</mockito.version>
+    <mockito.version>2.1.0</mockito.version>
     <slf4j.version>1.7.21</slf4j.version>
   </properties>
 
