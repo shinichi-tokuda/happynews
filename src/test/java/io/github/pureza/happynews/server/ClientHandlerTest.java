@@ -78,7 +78,8 @@ public class ClientHandlerTest extends AbstractTest {
         when (server.login(user.getUsername(), user.getPassword())).thenReturn(user);
 
         ClientHandler handler = new ClientHandler(user.getClientSocket(), server);
-        handler.run();
+        handler.start();
+        handler.join();
 
         assertThat(out.get(), equalTo("480 server ready - authentication required\n381 password please...\n281 Authentication accepted\n"));
         verify(user.getClientSocket()).close();
@@ -93,7 +94,8 @@ public class ClientHandlerTest extends AbstractTest {
         when (server.login(user.getUsername(), user.getPassword())).thenReturn(user);
 
         ClientHandler handler = new ClientHandler(user.getClientSocket(), server);
-        handler.run();
+        handler.start();
+        handler.join();
 
         assertThat(out.get(), equalTo("480 server ready - authentication required\n381 password please...\n281 Authentication accepted\n500 BLAH: Command not recognized\n"));
     }
@@ -107,7 +109,8 @@ public class ClientHandlerTest extends AbstractTest {
         when (server.login(user.getUsername(), user.getPassword())).thenReturn(user);
 
         ClientHandler handler = new ClientHandler(user.getClientSocket(), server);
-        handler.run();
+        handler.start();
+        handler.join();
 
         assertThat(out.get(), equalTo("480 server ready - authentication required\n381 password please...\n281 Authentication accepted\n"));
     }
@@ -121,7 +124,8 @@ public class ClientHandlerTest extends AbstractTest {
         when (server.login(user.getUsername(), user.getPassword())).thenReturn(user);
 
         ClientHandler handler = new ClientHandler(user.getClientSocket(), server);
-        handler.run();
+        handler.start();
+        handler.join();
 
         assertThat(out.get(), equalTo("480 server ready - authentication required\n381 password please...\n281 Authentication accepted\n202 slave status noted\n"));
     }
