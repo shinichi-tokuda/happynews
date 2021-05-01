@@ -133,7 +133,9 @@ public class UserRepository {
             hashInitialPassword(user);
 
             User oldUser = users.put(user.getUsername(), user);
-            assert (oldUser == null);
+            if (oldUser != null) {
+                throw new IllegalStateException(String.format("Overwrite user. oldUser=%s", oldUser));
+            }
 
             // Create the user's home if he's an editor
             createEditorHome(user);
@@ -159,7 +161,9 @@ public class UserRepository {
             }
 
             User oldUser = users.remove(username);
-            assert (user.equals(oldUser));
+            if (!user.equals(oldUser)) {
+                throw new IllegalStateException(String.format("Unexpected user. user=%1$s, oldUser=%2$s", user, oldUser));
+            }
         }
 
         // Save the users
@@ -191,11 +195,15 @@ public class UserRepository {
 
                 // Don't call remove() because we don't want to save the list of users at this point
                 User removedUser = users.remove(user.getUsername());
-                assert (user.equals(removedUser));
+                if (!user.equals(removedUser)) {
+                    throw new IllegalStateException(String.format("Unexpected user. user=%s, removedUser=%s", user, removedUser));
+                }
 
                 // Saves the new list to a file
                 boolean added = add(newUser);
-                assert (added);
+                if (!added) {
+                    throw new IllegalStateException(String.format("Not added. newUser=%s", newUser));
+                }
             } catch (Exception ex) {
                 logger.error("An error occurred while changing the role of user {} to {}", username, role, ex);
                 return false;
@@ -316,7 +324,9 @@ public class UserRepository {
                 }
             }
 
-            assert (Files.exists(path));
+            if (!Files.exists(path)) {
+                throw new IllegalStateException(String.format("File does not exist. path=%s", path));
+            }
         }
     }
 

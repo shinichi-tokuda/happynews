@@ -26,7 +26,9 @@ public class UserFactory {
                 throw new IllegalArgumentException("Unexpected role: " + role);
         }
 
-        assert (user.getRole().equals(role));
+        if (!user.getRole().equals(role)) {
+            throw new IllegalStateException(String.format("Unexpected role. user.getRole()=%s, role=%s", user.getRole(), role));
+        }
 
         return user;
     }

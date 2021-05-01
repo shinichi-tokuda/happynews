@@ -97,7 +97,9 @@ public class ArticleRepository {
                     // Create an empty file named after the article id in the user's home
                     File userFile = new File(author.getHome() + File.separator + articleFile.getName());
                     boolean created = userFile.createNewFile();
-                    assert (created);
+                    if (!created) {
+                        throw new IllegalStateException(String.format("Not created. userFile=%s", userFile));
+                    }
 
                     articles.put(msgId, new Article(msgId, config.articlesHome()));
                 } catch (IOException e) {
