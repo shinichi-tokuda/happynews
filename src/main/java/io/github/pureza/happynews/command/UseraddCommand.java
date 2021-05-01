@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * USERADD Command
@@ -42,7 +43,7 @@ public class UseraddCommand extends Command {
         }
 
         try {
-            User.Role role = User.Role.valueOf(args[3].toUpperCase());
+            User.Role role = User.Role.valueOf(args[3].toUpperCase(Locale.US));
 
             // Creates a new instance of the given Role, using reflection
             User u = UserFactory.createUser(args[1], args[2], role, config());

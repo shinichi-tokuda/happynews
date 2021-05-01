@@ -4,6 +4,7 @@ import io.github.pureza.happynews.user.User;
 
 import java.net.Socket;
 import java.io.*;
+import java.util.Locale;
 
 import io.github.pureza.happynews.command.Command;
 import org.slf4j.Logger;
@@ -46,7 +47,7 @@ public class ClientHandler extends Thread {
             while (true) {
                 String s = in.readLine();
 
-                if (s.toLowerCase().startsWith("quit")) {
+                if (s.toLowerCase(Locale.US).startsWith("quit")) {
                     break;
                 }
 
@@ -89,7 +90,7 @@ public class ClientHandler extends Thread {
         do {
             out.print("480 server ready - authentication required\n");
             authInfoUser = in.readLine();
-        } while (!authInfoUser.toUpperCase().startsWith("AUTHINFO USER"));
+        } while (!authInfoUser.toUpperCase(Locale.US).startsWith("AUTHINFO USER"));
         String userName = authInfoUser.split(" ")[2];
 
         out.print("381 password please...\n");

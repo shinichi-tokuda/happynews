@@ -78,7 +78,7 @@ public class GroupRepository {
      * Returns true if the newsgroup was added
      */
     public boolean add(String name) {
-        name = name.toLowerCase();
+        name = name.toLowerCase(Locale.US);
         if (!validator.isValidNewsgroupName(name)) {
             return false;
         }

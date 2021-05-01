@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -49,7 +50,7 @@ public class ArticleHeader {
      * If the field already existed, replaces its value and returns the old value.
      */
     public String put(String field, String value) {
-        field = field.toLowerCase();
+        field = field.toLowerCase(Locale.US);
 
         // New field: just add it
         if (!fields.containsKey(field)) {
@@ -77,7 +78,7 @@ public class ArticleHeader {
      * Returns the value of the given field
      */
     public String get(String field) {
-        return fields.get(field.toLowerCase());
+        return fields.get(field.toLowerCase(Locale.US));
     }
 
 
@@ -85,7 +86,7 @@ public class ArticleHeader {
      * Checks if the header contains the given field
      */
     public boolean contains(String field) {
-        return fields.containsKey(field.toLowerCase());
+        return fields.containsKey(field.toLowerCase(Locale.US));
     }
 
 

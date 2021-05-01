@@ -5,6 +5,7 @@ import io.github.pureza.happynews.user.User;
 import io.github.pureza.happynews.user.Admin;
 
 import java.io.IOException;
+import java.util.Locale;
 
 /**
  * USERCH Command
@@ -35,7 +36,7 @@ public class UserchCommand extends Command {
         }
 
         try {
-            User.Role role = User.Role.valueOf(args[2].toUpperCase());
+            User.Role role = User.Role.valueOf(args[2].toUpperCase(Locale.US));
             if (server.changeUserRole(args[1], role)) {
                 out.print("283 role changed\n");
             } else {

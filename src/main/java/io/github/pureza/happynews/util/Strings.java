@@ -1,5 +1,7 @@
 package io.github.pureza.happynews.util;
 
+import java.util.Locale;
+
 /**
  * String utility methods
  */
@@ -18,6 +20,6 @@ public class Strings {
             return text;
         }
 
-        return Character.toUpperCase(text.charAt(0)) + text.substring(1).toLowerCase();
+        return text.substring(0, 1).toUpperCase(Locale.US) + text.substring(1).toLowerCase(Locale.US);
     }
 }
