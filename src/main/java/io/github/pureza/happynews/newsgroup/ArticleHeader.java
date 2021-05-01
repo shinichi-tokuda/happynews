@@ -20,6 +20,7 @@ public class ArticleHeader {
     /** Header fields */
     private final Map<String, String> fields = new HashMap<>();
 
+    @SuppressWarnings("FieldCanBeLocal")
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
     /**

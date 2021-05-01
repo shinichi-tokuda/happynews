@@ -18,6 +18,7 @@ import java.util.regex.Pattern;
  *
  * This class is thread safe.
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class Article {
 
     /** Article id */
