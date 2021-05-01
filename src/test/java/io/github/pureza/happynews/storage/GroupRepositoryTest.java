@@ -37,7 +37,7 @@ public class GroupRepositoryTest extends AbstractTest {
 
 
     @Test
-    public void loadGroupsReturnsEmptyListIfFileDoesNotExist() throws IOException {
+    public void loadGroupsReturnsEmptyListIfFileDoesNotExist() {
         assertThat(repository.loadGroups(), equalTo(emptyList()));
     }
 

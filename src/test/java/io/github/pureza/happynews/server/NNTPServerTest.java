@@ -41,13 +41,13 @@ public class NNTPServerTest extends AbstractTest {
 
 
     @Test
-    public void loginFailsForUnknownUser() throws Exception {
+    public void loginFailsForUnknownUser() {
         assertThat(server.login("nonexistent_user", "password"), is(nullValue()));
     }
 
 
     @Test
-    public void loginFailsForWrongPassword() throws Exception {
+    public void loginFailsForWrongPassword() {
         User user = mockReader("reader");
         server.addUser(user);
 
@@ -56,7 +56,7 @@ public class NNTPServerTest extends AbstractTest {
 
 
     @Test
-    public void loginFailsIfUserIsAlreadyOnline() throws Exception {
+    public void loginFailsIfUserIsAlreadyOnline() {
         User user = mockReader("reader");
         server.addUser(user);
 
@@ -68,7 +68,7 @@ public class NNTPServerTest extends AbstractTest {
 
 
     @Test
-    public void loginSucceedsForCorrectPassword() throws Exception {
+    public void loginSucceedsForCorrectPassword() {
         User user = mockReader("reader");
         String originalPassword = user.getPassword();
         server.addUser(user);

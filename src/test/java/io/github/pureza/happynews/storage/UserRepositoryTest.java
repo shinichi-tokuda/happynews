@@ -291,13 +291,13 @@ public class UserRepositoryTest extends AbstractTest {
 
 
     @Test
-    public void authenticateFailsForUnknownUser() throws Exception {
+    public void authenticateFailsForUnknownUser() {
         assertThat(repository.authenticate("nonexistent_user", "password"), is(false));
     }
 
 
     @Test
-    public void authenticateFailsForWrongPassword() throws Exception {
+    public void authenticateFailsForWrongPassword() {
         User user = mockReader("reader");
         repository.add(user);
 
@@ -306,7 +306,7 @@ public class UserRepositoryTest extends AbstractTest {
 
 
     @Test
-    public void authenticateFailsIfUserIsAlreadyOnline() throws Exception {
+    public void authenticateFailsIfUserIsAlreadyOnline() {
         User user = mockReader("reader");
         String originalPassword = user.getPassword();
         repository.add(user);
@@ -319,7 +319,7 @@ public class UserRepositoryTest extends AbstractTest {
 
 
     @Test
-    public void authenticateSucceedsForCorrectPassword() throws Exception {
+    public void authenticateSucceedsForCorrectPassword() {
         User user = mockReader("reader");
         String originalPassword = user.getPassword();
         repository.add(user);

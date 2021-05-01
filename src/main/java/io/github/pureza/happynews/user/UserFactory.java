@@ -10,7 +10,7 @@ public class UserFactory {
     /**
      * Creates a new user with the given details
      */
-    public static User createUser(String username, String password, User.Role role, Config config) throws Exception {
+    public static User createUser(String username, String password, User.Role role, Config config) {
         final User user;
         switch (role) {
             case READER:

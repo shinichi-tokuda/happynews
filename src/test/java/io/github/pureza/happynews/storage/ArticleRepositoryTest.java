@@ -49,7 +49,7 @@ public class ArticleRepositoryTest extends AbstractTest {
 
 
     @Test
-    public void loadArticlesLoadsNoArticlesWhenThereAreNone() throws IOException {
+    public void loadArticlesLoadsNoArticlesWhenThereAreNone() {
         assertThat(repository.loadArticles(), equalTo(Collections.emptyMap()));
     }
 
