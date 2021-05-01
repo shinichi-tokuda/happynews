@@ -18,6 +18,9 @@ public class Validators {
     public static boolean validateDots(String text) {
         // split() documentation: Trailing empty strings are therefore not
         // included in the resulting array.
+        if (text == null || text.isEmpty()) {
+            return false;
+        }
         if (text.endsWith(".")) {
             return false;
         }
