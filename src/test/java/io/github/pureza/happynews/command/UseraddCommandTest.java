@@ -13,7 +13,7 @@ import java.util.function.Supplier;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.mockito.Matchers.anyObject;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 public class UseraddCommandTest extends AbstractTest {
@@ -82,7 +82,7 @@ public class UseraddCommandTest extends AbstractTest {
 
     @Test
     public void failWhenUserAlreadyExists() throws IOException {
-        when (server.addUser(anyObject())).thenReturn(false);
+        when (server.addUser(any())).thenReturn(false);
 
         Admin user = mockAdmin("admin");
         Supplier<String> out = mockInput(user, "");
@@ -94,7 +94,7 @@ public class UseraddCommandTest extends AbstractTest {
 
     @Test
     public void createsUserWhenSuccessful() throws IOException {
-        when (server.addUser(anyObject())).thenReturn(true);
+        when (server.addUser(any())).thenReturn(true);
 
         Admin user = mockAdmin("admin");
         Supplier<String> out = mockInput(user, "");
@@ -106,7 +106,7 @@ public class UseraddCommandTest extends AbstractTest {
 
     @Test
     public void roleIsCaseInsensitive() throws IOException {
-        when (server.addUser(anyObject())).thenReturn(true);
+        when (server.addUser(any())).thenReturn(true);
 
         Admin user = mockAdmin("admin");
         Supplier<String> out = mockInput(user, "");
