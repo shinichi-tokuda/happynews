@@ -123,7 +123,7 @@ public class GroupRepository {
                     if (!line.trim().isEmpty()) {
                         String[] parts = line.split("\t");
                         String name = parts[0].trim();
-                        Date dateCreated = new Date(Long.valueOf(parts[1].trim()));
+                        Date dateCreated = new Date(Long.parseLong(parts[1].trim()));
 
                         List<String> articles = new ArrayList<>();
                         if (parts.length == 3) {
