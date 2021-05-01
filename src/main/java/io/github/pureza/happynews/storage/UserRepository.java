@@ -300,9 +300,7 @@ public class UserRepository {
     void writeUsers() {
         try (PrintWriter out = new PrintWriter(Files.newBufferedWriter(config.usersFile()))) {
             synchronized (users) {
-                users.values().forEach(user -> {
-                    out.printf("%s\t%s\t%s\t%s\n", user.getUsername(), user.getPassword(), user.getSalt(), user.getRole().name());
-                });
+                users.values().forEach(user -> out.printf("%s\t%s\t%s\t%s\n", user.getUsername(), user.getPassword(), user.getSalt(), user.getRole().name()));
             }
         } catch (IOException ex) {
             logger.error("An error occurred while persisting the users", ex);

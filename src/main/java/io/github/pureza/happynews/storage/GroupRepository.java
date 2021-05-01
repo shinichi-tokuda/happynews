@@ -152,9 +152,7 @@ public class GroupRepository {
     public void writeGroups() {
         try (PrintWriter out = new PrintWriter(Files.newBufferedWriter(config.groupsFile()))) {
             synchronized (groups) {
-                groups.values().forEach(group -> {
-                    out.printf("%s\t%s\t%s\n", group.getName(), group.getDateCreated().getTime(), String.join(",", group.articles()));
-                });
+                groups.values().forEach(group -> out.printf("%s\t%s\t%s\n", group.getName(), group.getDateCreated().getTime(), String.join(",", group.articles())));
             }
         } catch (IOException ex) {
             logger.error("An error occurred while persisting the groups", ex);
