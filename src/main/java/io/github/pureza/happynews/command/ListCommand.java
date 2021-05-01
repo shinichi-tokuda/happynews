@@ -36,7 +36,6 @@ public class ListCommand extends Command {
         // XXX newsgroups concurrently
         synchronized(server.groups()) {
             server.groups().values()
-                    .stream()
                     .forEach(group -> out.printf("%s %d %d %s\n", group.getName(), group.getLastArticleNum(), group.getFirstArticleNum(), canPost));
         }
         out.print(".\n");
