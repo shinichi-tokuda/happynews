@@ -3,6 +3,7 @@ package io.github.pureza.happynews.command;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.regex.Matcher;
 
 import io.github.pureza.happynews.server.NNTPServer;
 import io.github.pureza.happynews.user.User;
@@ -45,25 +46,33 @@ public class MvCommand extends Command {
 
         // Check if the command is well formed
         if (args.length != 3) {
-            out.print("501 command syntax error\n");
+            out.print("501 command syntax error. args.length=" + args.length + "\n");
             return;
         }
 
         Editor editor = (Editor) client;
         Path cwd = editor.getPath();
 
-        Path srcPath = cwd.resolve(args[1]).normalize();
-        Path dstPath = cwd.resolve(args[2]).normalize();
+        String dirName = args[1].replaceFirst("<.*", "");
+        String fileName = args[1].replaceFirst(".*<", "<");
+        Matcher matcher = ArticleValidator.ARTICLE_ID_PATTERN.matcher(fileName);
+        if (matcher.matches()) {
+            fileName = matcher.group(1) + "@" + matcher.group(2);
+        }
+        if (fileName.isEmpty()) {
+            out.print("501 command syntax error. fileName.isEmpty()\n");
+        }
+        String articleId = "<" + fileName + ">";
 
-        String articleId = srcPath.getFileName().toString();
+        Path srcPath = cwd.resolve(dirName + fileName).normalize();
+        Path dstPath = cwd.resolve(args[2]).normalize();
 
         // Check if the article id follows the <id@host> format
         if (!(articleValidator.isValidArticleId(articleId))) {
-            out.print("501 command syntax error\n");
+            out.print("501 command syntax error. !isValidArticleId\n");
             return;
         }
 
-        String fileName = articleId.substring(1, articleId.length() - 1);
         Path srcFilePath = srcPath.getParent().resolve(fileName).normalize();
         Path dstFilePath = dstPath.resolve(fileName);
 

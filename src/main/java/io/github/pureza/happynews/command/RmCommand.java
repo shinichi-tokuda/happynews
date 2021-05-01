@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.regex.Matcher;
 
 /**
  * RM Command
@@ -50,8 +50,18 @@ public class RmCommand extends Command {
             return;
         }
 
-        Path argPath = editor.getPath().resolve(Paths.get(args[1])).normalize();
-        String articleId = argPath.getFileName().toString();
+        String dirName = args[1].replaceFirst("<.*", "");
+        String fileName = args[1].replaceFirst(".*<", "<");
+        Matcher matcher = ArticleValidator.ARTICLE_ID_PATTERN.matcher(fileName);
+        if (matcher.matches()) {
+            fileName = matcher.group(1) + "@" + matcher.group(2);
+        }
+        if (fileName.isEmpty()) {
+            out.print("501 command syntax error. fileName.isEmpty()\n");
+        }
+        String articleId = "<" + fileName + ">";
+
+        Path argPath = editor.getPath().resolve(dirName + fileName).normalize();
 
         // Check if the article id follows the <id@host> format
         if (!(articleValidator.isValidArticleId(articleId))) {
@@ -59,7 +69,6 @@ public class RmCommand extends Command {
             return;
         }
 
-        String fileName = articleId.substring(1, articleId.length() - 1);
         Path filePath = argPath.getParent().resolve(fileName);
 
         Path userHome = editor.getHome();
