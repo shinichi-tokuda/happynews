@@ -118,7 +118,7 @@ public class ArticleHeader {
                 }
 
                 String field = line.split(":")[0].trim();
-                String value = line.substring(line.indexOf(":") + 1, line.length()).trim();
+                String value = line.substring(line.indexOf(":") + 1).trim();
 
                 put(field, value);
 
