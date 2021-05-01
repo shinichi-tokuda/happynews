@@ -33,14 +33,14 @@ public class FindCommand extends Command {
     @Override
     public void process() throws IOException {
         if (args.length != 3) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
         String[] newsGroups = args[1].split(",");
         String regex = args[2];
 
-        out.println("232 List of matching articles follows");
+        out.print("232 List of matching articles follows\n");
 
         // Saves the matching article ids in a set to avoid duplicates
         Set<String> matches = new HashSet<>();
@@ -56,13 +56,13 @@ public class FindCommand extends Command {
                 for (String artId : g.articles()) {
                     Article a = server.getArticle(artId);
                     if (a.findInBody(regex)) {
-                        matches.add(a.getId());
+                        matches.add(a.getId() + "\n");
                     }
                 }
             }
         }
 
-        matches.forEach(out::println);
-        out.println(".");
+        matches.forEach(out::print);
+        out.print(".\n");
     }
 }

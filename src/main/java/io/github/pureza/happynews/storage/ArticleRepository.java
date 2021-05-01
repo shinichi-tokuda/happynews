@@ -91,8 +91,8 @@ public class ArticleRepository {
                 header.put("Message-ID", msgId);
 
                 try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(articleFile)))) {
-                    out.println(header);
-                    out.println();
+                    out.print(header + "\n");
+                    out.print("\n");
                     out.print(body);
 
                     // Create an empty file named after the article id in the user's home

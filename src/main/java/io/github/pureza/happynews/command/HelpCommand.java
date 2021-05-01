@@ -72,13 +72,13 @@ public class HelpCommand extends Command {
                         "\n   USERCH     Update the user role" +
                         "\n   USERRM     Remove a user";
 
-        out.println(userCommands);
+        out.print(userCommands + "\n");
         if (client instanceof Editor) {
-            out.println(editorCommands);
+            out.print(editorCommands + "\n");
         }
         if (client instanceof Admin) {
-            out.println(adminCommands);
+            out.print(adminCommands + "\n");
         }
-        out.println(".");
+        out.print(".\n");
     }
 }

@@ -59,7 +59,7 @@ public class ClientHandler extends Thread {
                     logger.info("{}: {}", client.getUsername(), s);
                     cmd.process();
                 } catch (UnknownCommandException ex) {
-                    out.println("500 " + s + ": Command not recognized");
+                    out.print("500 " + s + ": Command not recognized\n");
                     logger.debug("Unknown command: {}", s);
                 }
             }
@@ -87,21 +87,21 @@ public class ClientHandler extends Thread {
     void authenticate(BufferedReader in, PrintStream out) throws IOException, InvalidLoginException {
         String authInfoUser;
         do {
-            out.println("480 server ready - authentication required");
+            out.print("480 server ready - authentication required\n");
             authInfoUser = in.readLine();
         } while (!authInfoUser.toUpperCase().startsWith("AUTHINFO USER"));
         String userName = authInfoUser.split(" ")[2];
 
-        out.println("381 password please...");
+        out.print("381 password please...\n");
         String authInfoPass = in.readLine();
         String password = authInfoPass.split(" ")[2];
 
         client = server.login(userName, password);
         if (client == null) {
-            out.println("482 Invalid login");
+            out.print("482 Invalid login\n");
             throw new InvalidLoginException();
         }
 
-        out.println("281 Authentication accepted");
+        out.print("281 Authentication accepted\n");
     }
 }

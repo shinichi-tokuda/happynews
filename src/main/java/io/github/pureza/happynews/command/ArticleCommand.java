@@ -58,7 +58,7 @@ public class ArticleCommand extends Command {
 
         // Check for invalid article ids
         if (args.length > 2 || (isArticleId && !articleValidator.isValidArticleId(args[1]))) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -66,7 +66,7 @@ public class ArticleCommand extends Command {
         // To read the message with the given number, the user must subscribe
         // the newsgroup
         if (!isArticleId && client.getCurrentGroup() == null) {
-            out.println("412 no newsgroup has been selected");
+            out.print("412 no newsgroup has been selected\n");
             return;
         }
 
@@ -75,7 +75,7 @@ public class ArticleCommand extends Command {
             case 1:
                 // Displays the current message
                 if (client.getCurrentGroup().isEmpty()) {
-                    out.println("420 no current article has been selected");
+                    out.print("420 no current article has been selected\n");
                     return;
                 }
                 a = server.getArticle(client.getCurrentArticleId());
@@ -85,13 +85,13 @@ public class ArticleCommand extends Command {
                     String articleID = args[1];
                     a = server.getArticle(articleID);
                     if (a == null) {
-                        out.println("430 no such article found");
+                        out.print("430 no such article found\n");
                         return;
                     }
                 } else {
                     // Throws an exception if the first argument is an id
                     if (!client.getCurrentGroup().containsArticleNum(articleIndex)) {
-                        out.println("423 no such article number in this group");
+                        out.print("423 no such article number in this group\n");
                         return;
                     }
 
@@ -106,13 +106,13 @@ public class ArticleCommand extends Command {
         }
 
         out.printf("220 %d %s article retrieved - head and body follows\n", articleIndex, a.getId());
-        out.println(a.getHeader());
+        out.print(a.getHeader() + "\n");
         String body = a.getBody();
         if (body.length() > 0) {
-            out.println();
-            out.println(a.getBody());
+            out.print("\n");
+            out.print(a.getBody() + "\n");
         }
-        out.println(".");
+        out.print(".\n");
     }
 }
 

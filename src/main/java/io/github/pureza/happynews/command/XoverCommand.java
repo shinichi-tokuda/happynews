@@ -32,7 +32,7 @@ public class XoverCommand extends Command {
     public void process() throws IOException {
         Newsgroup group = client.getCurrentGroup();
         if (group == null) {
-            out.println("412 no newsgroup has been selected");
+            out.print("412 no newsgroup has been selected\n");
             return;
         }
 
@@ -41,7 +41,7 @@ public class XoverCommand extends Command {
         int endIndex;
         if (args.length < 2) {
             if (client.getCurrentArticleIndex() <= 0 || group.isEmpty()) {
-                out.println("420 no current article has been selected");
+                out.print("420 no current article has been selected\n");
                 return;
             }
 
@@ -56,12 +56,12 @@ public class XoverCommand extends Command {
                         (!range.contains("-") ? startIndex : lastInGroup)
                         : Integer.parseInt(limits[1]));
             } catch (Exception ex) {
-                out.println("501 command syntax error");
+                out.print("501 command syntax error\n");
                 return;
             }
 
             if (endIndex < startIndex || endIndex < group.getFirstArticleNum() || startIndex > lastInGroup) {
-                out.println("420 No article(s) selected");
+                out.print("420 No article(s) selected\n");
                 return;
             }
 
@@ -74,7 +74,7 @@ public class XoverCommand extends Command {
             }
         }
 
-        out.println("224 Overview information follows");
+        out.print("224 Overview information follows\n");
 
         for (int i = startIndex; i <= endIndex; i++) {
             Article article = server.getArticle(group.getArticleId(i));
@@ -88,6 +88,6 @@ public class XoverCommand extends Command {
                         header.get("Message-ID"));
             }
         }
-        out.println(".");
+        out.print(".\n");
     }
 }

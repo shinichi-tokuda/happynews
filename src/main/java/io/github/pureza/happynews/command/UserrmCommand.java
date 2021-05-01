@@ -25,19 +25,19 @@ public class UserrmCommand extends Command {
 
     public void process() throws IOException {
         if (args.length != 2) {
-            out.println("501 command syntax error: USERRM <username>");
+            out.print("501 command syntax error: USERRM <username>\n");
             return;
         }
 
         if (!(client instanceof Admin)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
         if (server.removeUser(args[1])) {
-            out.println("282 user removed");
+            out.print("282 user removed\n");
         } else {
-            out.println("482 user not removed - perhaps user is online?");
+            out.print("482 user not removed - perhaps user is online?\n");
         }
     }
 }

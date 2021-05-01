@@ -33,14 +33,14 @@ public class RmdirCommand extends Command {
     @Override
     public void process() throws IOException {
         if (!(client instanceof Editor)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
         Editor editor = (Editor) client;
 
         if (args.length != 2) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -49,7 +49,7 @@ public class RmdirCommand extends Command {
 
         // Unable to delete the current working directory
         if (path.equals(editor.getPath())) {
-            out.println("491 can't delete current directory");
+            out.print("491 can't delete current directory\n");
             return;
         }
 
@@ -58,17 +58,17 @@ public class RmdirCommand extends Command {
             if (Files.isDirectory(path)) {
                 try {
                     Files.delete(path);
-                    out.println("291 directory removed");
+                    out.print("291 directory removed\n");
                 } catch (Exception ex) {
                     logger.debug("Unable to rmdir {}", path, ex);
 
-                    out.println("491 directory not removed");
+                    out.print("491 directory not removed\n");
                 }
             } else {
-                out.println("491 not a directory");
+                out.print("491 not a directory\n");
             }
         } else {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
         }
     }
 }

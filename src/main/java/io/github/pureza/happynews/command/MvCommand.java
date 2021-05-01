@@ -39,13 +39,13 @@ public class MvCommand extends Command {
     public void process() throws IOException {
         // Check if the user has the right permission
         if (!(client instanceof Editor)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
         // Check if the command is well formed
         if (args.length != 3) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -59,7 +59,7 @@ public class MvCommand extends Command {
 
         // Check if the article id follows the <id@host> format
         if (!(articleValidator.isValidArticleId(articleId))) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -69,13 +69,13 @@ public class MvCommand extends Command {
 
         // Does the article exist?
         if (!Files.exists(srcFilePath)) {
-            out.println("488 article not found");
+            out.print("488 article not found\n");
             return;
         }
 
         // Does the new path exist?
         if (!Files.exists(dstPath)) {
-            out.println("488 path not found");
+            out.print("488 path not found\n");
             return;
         }
 
@@ -86,13 +86,13 @@ public class MvCommand extends Command {
         if (dstFilePath.startsWith(home) && (srcPath.startsWith(home))) {
             try {
                 Files.move(srcFilePath, dstFilePath);
-                out.println("288 article moved");
+                out.print("288 article moved\n");
             } catch (IOException ex) {
                 logger.debug("Unable to mv {}", srcFilePath, dstFilePath);
-                out.println("488 move failed");
+                out.print("488 move failed\n");
             }
         } else {
-            out.println("502 Permission denied");
+            out.print("502 Permission denied\n");
         }
     }
 }

@@ -26,7 +26,7 @@ public class PwdCommand extends Command {
     @Override
     public void process() throws IOException {
         if (!(client instanceof Editor)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
@@ -34,6 +34,6 @@ public class PwdCommand extends Command {
         Path path = editor.getPath();
         Path relativePath = config().usersHome().relativize(path);
 
-        out.println("289 /" + relativePath.toString());
+        out.print("289 /" + relativePath.toString() + "\n");
     }
 }

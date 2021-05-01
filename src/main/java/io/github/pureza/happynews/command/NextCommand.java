@@ -31,19 +31,19 @@ public class NextCommand extends Command {
     public void process() throws IOException {
         Newsgroup currentGroup = client.getCurrentGroup();
         if (currentGroup == null) {
-            out.println("412 no newsgroup has been selected");
+            out.print("412 no newsgroup has been selected\r");
             return;
         }
 
         synchronized (currentGroup) {
             if (currentGroup.isEmpty()) {
-                out.println("420 no current article has been selected");
+                out.print("420 no current article has been selected\n");
                 return;
             }
 
             int articleIndex = client.getCurrentArticleIndex();
             if (!currentGroup.hasNext(articleIndex)) {
-                out.println("421 no next article in this group");
+                out.print("421 no next article in this group\n");
                 return;
             }
 

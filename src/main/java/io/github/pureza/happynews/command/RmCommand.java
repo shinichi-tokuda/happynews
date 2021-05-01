@@ -39,14 +39,14 @@ public class RmCommand extends Command {
     @Override
     public void process() throws IOException {
         if (!(client instanceof Editor)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
         Editor editor = (Editor) client;
 
         if (args.length != 2) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -55,7 +55,7 @@ public class RmCommand extends Command {
 
         // Check if the article id follows the <id@host> format
         if (!(articleValidator.isValidArticleId(articleId))) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -68,13 +68,13 @@ public class RmCommand extends Command {
         if (filePath.startsWith(userHome)) {
             try {
                 Files.delete(filePath);
-                out.println("290 article removed from your local directory");
+                out.print("290 article removed from your local directory\n");
             } catch (IOException ex) {
                 logger.debug("Unable to rm {}", argPath, ex);
-                out.println("490 no such article");
+                out.print("490 no such article\n");
             }
         } else {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
         }
     }
 }

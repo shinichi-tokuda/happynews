@@ -32,12 +32,12 @@ public class UseraddCommand extends Command {
     @Override
     public void process() throws IOException {
         if (args.length != 4) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
         if (!(client instanceof Admin)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
@@ -47,15 +47,15 @@ public class UseraddCommand extends Command {
             // Creates a new instance of the given Role, using reflection
             User u = UserFactory.createUser(args[1], args[2], role, config());
             if (server.addUser(u)) {
-                out.println("281 user added");
+                out.print("281 user added\n");
             } else {
-                out.println("481 user already exists");
+                out.print("481 user already exists\n");
             }
         } catch (Exception e) {
             logger.debug("An error occurred while adding a new user", e);
 
             // Probably, no such role exists...
-            out.println("481 operation not performed");
+            out.print("481 operation not performed\n");
         }
     }
 }

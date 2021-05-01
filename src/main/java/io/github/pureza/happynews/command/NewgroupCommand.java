@@ -26,19 +26,19 @@ public class NewgroupCommand extends Command {
     @Override
     public void process() throws IOException {
         if (!(client instanceof Admin)) {
-            out.println("450 create newsgroup not allowed");
+            out.print("450 create newsgroup not allowed\r");
             return;
         }
 
         try {
             String groupName = args[1];
             if (server.createGroup(groupName)) {
-                out.println("250 group created");
+                out.print("250 group created\r");
             } else {
-                out.println("451 create failed");
+                out.print("451 create failed\r");
             }
         } catch (ArrayIndexOutOfBoundsException ex) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
         }
     }
 }

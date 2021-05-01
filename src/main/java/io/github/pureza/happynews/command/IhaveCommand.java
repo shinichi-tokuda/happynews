@@ -26,6 +26,6 @@ public class IhaveCommand extends Command {
 
     @Override
     public void process() throws IOException {
-        out.println("435 article not wanted - do not send it");
+        out.print("435 article not wanted - do not send it\n");
     }
 }

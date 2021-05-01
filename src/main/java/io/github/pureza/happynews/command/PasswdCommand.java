@@ -32,31 +32,31 @@ public class PasswdCommand extends Command {
             case 2:
                 // Update own password
                 if (server.changeUserPassword(client.getUsername(), args[1])) {
-                    out.println("284 password changed");
+                    out.print("284 password changed\n");
                 } else {
-                    out.println("484 password not changed - maybe it is invalid?");
+                    out.print("484 password not changed - maybe it is invalid?\n");
                 }
                 break;
             case 3:
                 // Update the password of another user
                 User u = server.getUser(args[1]);
                 if (!(client instanceof Admin) && u != client) {
-                    out.println("502 permission denied");
+                    out.print("502 permission denied\n");
                     return;
                 }
 
                 if (u == null) {
-                    out.println("484 user doesn't exist");
+                    out.print("484 user doesn't exist\n");
                     return;
                 }
                 if (server.changeUserPassword(u.getUsername(), args[2])) {
-                    out.println("284 password changed");
+                    out.print("284 password changed\n");
                 } else {
-                    out.println("484 password not changed - maybe it is invalid?");
+                    out.print("484 password not changed - maybe it is invalid?\n");
                 }
                 break;
             default:
-                out.println("501 command syntax error");
+                out.print("501 command syntax error\n");
                 break;
         }
     }

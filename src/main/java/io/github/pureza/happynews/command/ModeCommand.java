@@ -29,9 +29,9 @@ public class ModeCommand extends Command {
     @Override
     public void process() throws IOException {
         if (client instanceof Editor) {
-            out.println("200 Hello, you can post");
+            out.print("200 Hello, you can post\n");
         } else {
-            out.println("201 Hello, you can't post");
+            out.print("201 Hello, you can't post\n");
         }
     }
 }

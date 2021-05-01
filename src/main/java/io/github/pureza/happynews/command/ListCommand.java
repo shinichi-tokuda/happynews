@@ -28,7 +28,7 @@ public class ListCommand extends Command {
 
     @Override
     public void process() throws IOException {
-        out.println("215 list of newsgroups follows");
+        out.print("215 list of newsgroups follows\n");
 
         String canPost = client instanceof Editor ? "y" : "n";
 
@@ -39,6 +39,6 @@ public class ListCommand extends Command {
                     .stream()
                     .forEach(group -> out.printf("%s %d %d %s\n", group.getName(), group.getLastArticleNum(), group.getFirstArticleNum(), canPost));
         }
-        out.println(".");
+        out.print(".\n");
     }
 }

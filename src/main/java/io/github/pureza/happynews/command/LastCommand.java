@@ -30,19 +30,19 @@ public class LastCommand extends Command {
     public void process() throws IOException {
         Newsgroup currentGroup = client.getCurrentGroup();
         if (currentGroup == null) {
-            out.println("412 no newsgroup has been selected");
+            out.print("412 no newsgroup has been selected\n");
             return;
         }
 
         synchronized (currentGroup) {
             if (currentGroup.isEmpty()) {
-                out.println("420 no current article has been selected");
+                out.print("420 no current article has been selected\n");
                 return;
             }
 
             int articleIndex = client.getCurrentArticleIndex();
             if (!currentGroup.hasPrevious(articleIndex)) {
-                out.println("422 no previous article in this group");
+                out.print("422 no previous article in this group\n");
                 return;
             }
 

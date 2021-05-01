@@ -43,10 +43,10 @@ public class GroupCommand extends Command {
                             group.getName());
                 }
             } else {
-                out.println("411 no such news group");
+                out.print("411 no such news group\n");
             }
         } catch (ArrayIndexOutOfBoundsException ex) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
         }
     }
 }

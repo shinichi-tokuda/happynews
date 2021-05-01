@@ -29,11 +29,11 @@ public class UserlistCommand extends Command {
     @Override
     public void process() throws IOException {
         if (!(client instanceof Admin)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
-        out.println("280 User list follows");
+        out.print("280 User list follows\n");
         synchronized(server.users()) {
             for (User user : server.users().values()) {
                 if (args.length >= 2 && !user.isOnline()) {
@@ -44,6 +44,6 @@ public class UserlistCommand extends Command {
                         user.isOnline() ? " " + user.getClientSocket().getInetAddress().getHostAddress() : "");
             }
         }
-        out.println(".");
+        out.print(".\n");
     }
 }

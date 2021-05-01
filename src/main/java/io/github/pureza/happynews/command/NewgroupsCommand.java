@@ -36,7 +36,7 @@ public class NewgroupsCommand extends Command {
     @Override
     public void process() throws IOException {
         if (args.length != 3) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -48,7 +48,7 @@ public class NewgroupsCommand extends Command {
         try {
             d = fmt.parse(date + " " + hour);
         } catch (ParseException e) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -56,7 +56,7 @@ public class NewgroupsCommand extends Command {
         c.setTime(d);
         String canPost = client instanceof Editor ? "y" : "n";
 
-        out.println("231 list of new newsgroups follows");
+        out.print("231 list of new newsgroups follows\n");
 
         // The list of groups can be modified by other threads, so it needs to
         // be synchronized
@@ -67,7 +67,7 @@ public class NewgroupsCommand extends Command {
                     .forEach(group -> out.printf("%s %d %d %s\n", group.getName(), group.getLastArticleNum(),
                             group.getFirstArticleNum(), canPost));
         }
-        out.println(".");
+        out.print(".\n");
     }
 }
 

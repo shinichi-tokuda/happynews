@@ -32,7 +32,7 @@ public class NewnewsCommand extends Command {
     @Override
     public void process() throws IOException {
         if (args.length != 4) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -44,14 +44,14 @@ public class NewnewsCommand extends Command {
         try {
             d = fmt.parse(date + " " + hour);
         } catch (ParseException e) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
         Calendar c = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
         c.setTime(d);
 
-        out.println("230 list of new articles by message-id follows");
+        out.print("230 list of new articles by message-id follows\n");
         Set<String> articles = new HashSet<>();
         for (String s : args[1].split(",")) {
             Newsgroup group = server.getGroup(s);
@@ -66,12 +66,12 @@ public class NewnewsCommand extends Command {
                 for (int i = group.articles().size() - 1; i >= 0; i--) {
                     Article a = server.getArticle(group.articles().get(i));
                     if (a.getDatePosted().after(c.getTime())) {
-                        articles.add(a.getId());
+                        articles.add(a.getId() + "\n");
                     }
                 }
             }
         }
-        articles.forEach(out::println);
-        out.println(".");
+        articles.forEach(out::print);
+        out.print(".\n");
     }
 }

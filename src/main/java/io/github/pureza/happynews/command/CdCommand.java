@@ -31,7 +31,7 @@ public class CdCommand extends Command {
     public void process() throws IOException {
         // Check if the user has permission
         if (!(client instanceof Editor)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
@@ -39,7 +39,7 @@ public class CdCommand extends Command {
 
         // Check if the command is well formed
         if (args.length != 2) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -55,9 +55,9 @@ public class CdCommand extends Command {
 
         if (Files.isDirectory(path)) {
             editor.setPath(path);
-            out.println("285 directory changed");
+            out.print("285 directory changed\n");
         } else {
-            out.println("485 directory not changed");
+            out.print("485 directory not changed\n");
         }
     }
 }

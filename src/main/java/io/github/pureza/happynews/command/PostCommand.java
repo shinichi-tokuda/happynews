@@ -46,11 +46,11 @@ public class PostCommand extends Command {
     @Override
     public void process() throws IOException {
         if (!(client instanceof Editor)) {
-            out.println("440 posting not allowed");
+            out.print("440 posting not allowed\n");
             return;
         }
 
-        out.println("340 send article to be posted. End with <CR-LF>.<CR-LF>");
+        out.print("340 send article to be posted. End with <CR-LF>.<CR-LF>\n");
 
         String line;
         StringBuilder headerText = new StringBuilder();
@@ -61,7 +61,7 @@ public class PostCommand extends Command {
 
             if (line.equals(".")) {
                 if (headerText.length() == 0) {
-                    out.println("441 posting failed: blank message?");
+                    out.print("441 posting failed: blank message?\n");
                     return;
                 }
                 break;
@@ -92,9 +92,9 @@ public class PostCommand extends Command {
 
         // NNTPServer.postArticle fails if any of the mandatory fields are missing
         if (server.postArticle(header, body.toString(), (Editor) client)) {
-            out.println("240 article posted ok");
+            out.print("240 article posted ok\n");
         } else {
-            out.println("441 posting failed: missing headers?");
+            out.print("441 posting failed: missing headers?\n");
         }
     }
 }

@@ -34,13 +34,13 @@ public class MkdirCommand extends Command {
     public void process() throws IOException {
         // Check if the user has the right permission
         if (!(client instanceof Editor)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
         // Check if the command is well formed
         if (args.length != 2) {
-            out.println("501 command syntax error");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -52,13 +52,13 @@ public class MkdirCommand extends Command {
         if (path.startsWith(editor.getHome())) {
             try {
                 Files.createDirectory(path);
-                out.println("287 directory created");
+                out.print("287 directory created\n");
             } catch (Exception ex) {
                 logger.debug("Unable to mkdir {}", path, ex);
-                out.println("487 directory not created");
+                out.print("487 directory not created\n");
             }
         } else {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
         }
     }
 }

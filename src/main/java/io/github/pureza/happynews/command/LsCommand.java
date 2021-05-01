@@ -38,7 +38,7 @@ public class LsCommand extends Command {
     public void process() throws IOException {
         // Check if the user has permission to use this command
         if (!(client instanceof Editor)) {
-            out.println("502 permission denied");
+            out.print("502 permission denied\n");
             return;
         }
 
@@ -64,11 +64,11 @@ public class LsCommand extends Command {
         }
 
         if (Files.exists(path)) {
-            out.println("286 list follows");
+            out.print("286 list follows\n");
 
             Files.list(path).forEach(article -> {
                 if (Files.isDirectory(article)) {
-                    out.println(article.getFileName().toString() + File.separator);
+                    out.print(article.getFileName().toString() + File.separator + "\n");
                 } else {
                     StringBuilder output = new StringBuilder("<").append(article.getFileName()).append(">");
                     if (detailed) {
@@ -82,14 +82,14 @@ public class LsCommand extends Command {
                             output.append(" ").append(header.get("Subject"));
                         }
                     }
-                    out.println(output);
+                    out.print(output + "\n");
                 }
             });
 
-            out.println(".");
+            out.print(".\n");
         } else {
             // Directory doesn't exist
-            out.println("486 path doesn't exist");
+            out.print("486 path doesn't exist\n");
         }
     }
 }

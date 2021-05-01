@@ -18,6 +18,6 @@ public class SlaveCommand extends Command {
 
     @Override
     public void process() throws IOException {
-        out.println("202 slave status noted");
+        out.print("202 slave status noted\n");
     }
 }
