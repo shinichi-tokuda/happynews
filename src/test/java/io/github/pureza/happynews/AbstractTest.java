@@ -18,7 +18,6 @@ import java.net.Socket;
 import java.nio.charset.Charset;
 import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.function.Supplier;
 
@@ -172,7 +171,6 @@ public abstract class AbstractTest {
         String articleId = "<" + fileName + ">";
         Files.createFile(editor.getPath().resolve(fileName));
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("E, dd MMM yy HH:mm:ss");
         Files.write(config.articlesHome().resolve(fileName), asList(
                 "From: " + editor.getUsername() + "@example.org",
                 "Subject: " + subject,
@@ -193,7 +191,6 @@ public abstract class AbstractTest {
         String articleId = "<" + fileName + ">";
         Files.createFile(editor.getPath().resolve(fileName));
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("E, dd MMM yy HH:mm:ss");
         Files.write(config.articlesHome().resolve(fileName), asList(
                 "From: " + editor.getUsername() + "@example.org",
                 "Subject: " + subject,

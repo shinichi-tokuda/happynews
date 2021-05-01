@@ -24,7 +24,7 @@ public class MvCommandTest extends AbstractTest {
         super.setUp();
 
         Path a = Files.createDirectories(config.usersHome().resolve("editor").resolve("a"));
-        Path b = Files.createDirectories(config.usersHome().resolve("editor").resolve("b"));
+        /*Path b = */Files.createDirectories(config.usersHome().resolve("editor").resolve("b"));
         Path c = Files.createDirectories(config.usersHome().resolve("editor").resolve("c"));
         Files.createFile(a.resolve("1@host"));
         Files.createFile(c.resolve("1@host"));

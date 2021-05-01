@@ -1,7 +1,6 @@
 package io.github.pureza.happynews.command;
 
 import io.github.pureza.happynews.AbstractTest;
-import io.github.pureza.happynews.user.Admin;
 import io.github.pureza.happynews.user.Editor;
 import io.github.pureza.happynews.user.Reader;
 import org.junit.After;
@@ -107,7 +106,7 @@ public class CdCommandTest extends AbstractTest {
         Editor user = mockEditor("editor");
         Supplier<String> out = mockInput(user, "");
 
-        Admin admin = mockAdmin("admin");
+        /*Admin admin = */mockAdmin("admin");
 
         new CdCommand(user, "CD ../admin", server).process();
 
