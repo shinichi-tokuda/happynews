@@ -140,6 +140,7 @@ public class NNTPServerTest extends AbstractTest {
 
         SimpleDateFormat dateFormatter = new SimpleDateFormat("E, dd MMM yy HH:mm:ss");
         Date date = dateFormatter.parse(server.getArticle("<1@host.org>").getHeader().get("date"));
+        assertThat(date != null, is(true));
 
         // < 1 second difference
         assertThat(Math.abs(date.getTime() - before.getTime()) < 1000, is(true));
