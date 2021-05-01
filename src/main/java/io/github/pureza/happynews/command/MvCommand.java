@@ -97,7 +97,7 @@ public class MvCommand extends Command {
                 Files.move(srcFilePath, dstFilePath);
                 out.print("288 article moved\n");
             } catch (IOException ex) {
-                logger.debug("Unable to mv {}", srcFilePath, dstFilePath);
+                logger.debug("Unable to mv {} {}", srcFilePath, dstFilePath);
                 out.print("488 move failed\n");
             }
         } else {
