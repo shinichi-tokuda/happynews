@@ -10,7 +10,6 @@ import java.io.*;
 import java.nio.file.Files;
 import java.util.*;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toMap;
 
@@ -154,7 +153,7 @@ public class GroupRepository {
         try (PrintWriter out = new PrintWriter(Files.newBufferedWriter(config.groupsFile()))) {
             synchronized (groups) {
                 groups.values().forEach(group -> {
-                    out.printf("%s\t%s\t%s\n", group.getName(), group.getDateCreated().getTime(), group.articles().stream().collect(Collectors.joining(",")));
+                    out.printf("%s\t%s\t%s\n", group.getName(), group.getDateCreated().getTime(), String.join(",", group.articles()));
                 });
             }
         } catch (IOException ex) {

@@ -13,7 +13,6 @@ import java.util.*;
 import static io.github.pureza.happynews.Tests.date;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
-import static java.util.stream.Collectors.joining;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -50,7 +49,7 @@ public class GroupRepositoryTest extends AbstractTest {
 
         Files.write(config.groupsFile(), asList(
                 String.format("%s\t%d", group1.getName(), group1.getDateCreated().getTime()),
-                String.format("%s\t%d\t%s", group2.getName(), group2.getDateCreated().getTime(), group2.articles().stream().collect(joining(",")))));
+                String.format("%s\t%d\t%s", group2.getName(), group2.getDateCreated().getTime(), String.join(",", group2.articles()))));
 
         assertThat(repository.loadGroups(), equalTo(groups));
     }
