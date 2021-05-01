@@ -57,9 +57,7 @@ public class GroupRepositoryTest extends AbstractTest {
 
     @Test(expected=Exception.class)
     public void loadGroupsFailsOnIllegalGroups() throws IOException {
-        Files.write(config.groupsFile(), asList(
-                String.format("group1\t12345678"),
-                String.format("group2\tTHIS_WILL_THROW_AN_ERROR")));
+        Files.write(config.groupsFile(), asList("group1\t12345678", "group2\tTHIS_WILL_THROW_AN_ERROR"));
 
         repository.loadGroups();
     }
