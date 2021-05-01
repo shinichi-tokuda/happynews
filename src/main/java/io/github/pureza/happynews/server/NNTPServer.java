@@ -17,6 +17,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -217,7 +218,7 @@ public class NNTPServer extends Thread {
      */
     public boolean postArticle(ArticleHeader header, String body, Editor author) {
         // Set the article's date
-        SimpleDateFormat s = new SimpleDateFormat("E, dd MMM yy HH:mm:ss");
+        SimpleDateFormat s = new SimpleDateFormat("E, dd MMM yy HH:mm:ss", Locale.US);
         header.put("Date", s.format(new Date()));
 
         if (articleRepository.add(header, body, author)) {

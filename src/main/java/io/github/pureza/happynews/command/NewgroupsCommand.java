@@ -11,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 import java.util.TimeZone;
 
 /**
@@ -43,7 +44,7 @@ public class NewgroupsCommand extends Command {
         String date = args[1];
         String hour = args[2];
 
-        DateFormat fmt = new SimpleDateFormat("yyMMdd HHmmss");
+        DateFormat fmt = new SimpleDateFormat("yyMMdd HHmmss", Locale.US);
         Date d;
         try {
             d = fmt.parse(date + " " + hour);

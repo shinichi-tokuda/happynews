@@ -15,6 +15,7 @@ import java.net.Socket;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 import static java.util.Collections.singletonList;
 import static org.hamcrest.CoreMatchers.is;
@@ -138,7 +139,7 @@ public class NNTPServerTest extends AbstractTest {
         Date before = new Date();
         assertThat(server.postArticle(header, body, user), is(true));
 
-        SimpleDateFormat dateFormatter = new SimpleDateFormat("E, dd MMM yy HH:mm:ss");
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("E, dd MMM yy HH:mm:ss", Locale.US);
         Date date = dateFormatter.parse(server.getArticle("<1@host.org>").getHeader().get("date"));
         assertThat(date != null, is(true));
 

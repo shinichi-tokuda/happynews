@@ -39,7 +39,7 @@ public class NewnewsCommand extends Command {
         String date = args[2];
         String hour = args[3];
 
-        DateFormat fmt = new SimpleDateFormat("yyMMdd HHmmss");
+        DateFormat fmt = new SimpleDateFormat("yyMMdd HHmmss", Locale.US);
         Date d;
         try {
             d = fmt.parse(date + " " + hour);
