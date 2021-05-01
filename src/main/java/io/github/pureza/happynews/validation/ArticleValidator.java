@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 public class ArticleValidator {
 
     /** Pattern used to validate article ids */
-    public final static Pattern ARTICLE_ID_PATTERN = Pattern.compile("<(\\d+)@([a-zA-Z_][\\w\\.]*)>");
+    public final static Pattern ARTICLE_ID_PATTERN = Pattern.compile("<(\\d+)@([a-zA-Z_][\\w.]*)>");
 
     /** Pattern used to validate article ids */
-    public final static Pattern FROM_PATTERN = Pattern.compile(".*<([a-zA-Z_][\\w\\.]*)@([a-zA-Z_][\\w\\.]*)>");
+    public final static Pattern FROM_PATTERN = Pattern.compile(".*<([a-zA-Z_][\\w.]*)@([a-zA-Z_][\\w.]*)>");
 
     /** Used to validate the list of newsgroups */
     private final NewsgroupValidator newsgroupValidator = new NewsgroupValidator();
