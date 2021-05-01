@@ -27,6 +27,7 @@ public class NextCommand extends Command {
     }
 
 
+    @SuppressWarnings("SynchronizationOnLocalVariableOrMethodParameter")
     @Override
     public void process() throws IOException {
         Newsgroup currentGroup = client.getCurrentGroup();
