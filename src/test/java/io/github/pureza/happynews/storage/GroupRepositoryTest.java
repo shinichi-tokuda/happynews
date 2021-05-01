@@ -1,30 +1,22 @@
 package io.github.pureza.happynews.storage;
 
 import io.github.pureza.happynews.AbstractTest;
-import io.github.pureza.happynews.newsgroup.Article;
-import io.github.pureza.happynews.newsgroup.ArticleHeader;
 import io.github.pureza.happynews.newsgroup.Newsgroup;
-import io.github.pureza.happynews.user.Editor;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.nio.file.Files;
-import java.security.acl.Group;
 import java.util.*;
 
 import static io.github.pureza.happynews.Tests.date;
 import static java.util.Arrays.asList;
 import static java.util.Collections.emptyList;
-import static java.util.Collections.emptyMap;
 import static java.util.stream.Collectors.joining;
 import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.mockito.Matchers.contains;
 
 public class GroupRepositoryTest extends AbstractTest {
 

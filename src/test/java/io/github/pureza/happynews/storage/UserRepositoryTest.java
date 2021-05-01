@@ -1,7 +1,6 @@
 package io.github.pureza.happynews.storage;
 
 import io.github.pureza.happynews.AbstractTest;
-import io.github.pureza.happynews.newsgroup.Newsgroup;
 import io.github.pureza.happynews.user.Editor;
 import io.github.pureza.happynews.user.Reader;
 import io.github.pureza.happynews.user.User;
@@ -9,17 +8,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.net.Socket;
 import java.nio.file.Files;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 
-import static io.github.pureza.happynews.Tests.date;
 import static java.util.Arrays.asList;
 import static java.util.Collections.*;
-import static java.util.stream.Collectors.joining;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
