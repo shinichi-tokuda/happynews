@@ -47,6 +47,10 @@ public class NewnewsCommand extends Command {
             out.print("501 command syntax error\n");
             return;
         }
+        if (d == null) {
+            out.print("501 command syntax error\n");
+            return;
+        }
 
         Calendar c = new GregorianCalendar(TimeZone.getTimeZone("GMT"));
         c.setTime(d);
