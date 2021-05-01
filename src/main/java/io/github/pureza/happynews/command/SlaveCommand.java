@@ -9,7 +9,7 @@ import java.io.IOException;
  *
  * Not implemented.
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class SlaveCommand extends Command {
     public SlaveCommand(User client, String args, NNTPServer server) throws IOException {
         super(client, args, server);

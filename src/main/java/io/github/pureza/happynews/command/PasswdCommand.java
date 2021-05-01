@@ -18,7 +18,7 @@ import java.io.IOException;
  * Usage: PASSWD [username] <new password>
  * Permission: Reader or Admin if changing the password of another user
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class PasswdCommand extends Command {
 
     public PasswdCommand(User client, String args, NNTPServer server) throws IOException {

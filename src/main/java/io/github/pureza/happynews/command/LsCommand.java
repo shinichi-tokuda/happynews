@@ -25,7 +25,7 @@ import java.nio.file.Path;
  *          LS -d evangelion
  * Permission: Editor
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class LsCommand extends Command {
 
     public LsCommand(User client, String args, NNTPServer server) throws IOException {

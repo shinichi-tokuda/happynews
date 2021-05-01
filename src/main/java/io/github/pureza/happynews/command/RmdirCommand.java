@@ -20,7 +20,7 @@ import java.nio.file.Path;
  *          RMDIR old/stuff
  * Permission: Editor
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class RmdirCommand extends Command {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

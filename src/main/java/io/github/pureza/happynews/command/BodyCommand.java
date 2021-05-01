@@ -28,7 +28,7 @@ import java.io.IOException;
  * See also: Command ARTICLE, HEAD, STAT, NEXT, LAST
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class BodyCommand extends Command {
 
     /** Validator for article ids */

@@ -15,7 +15,7 @@ import java.io.IOException;
  * Usage: HELP
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class HelpCommand extends Command {
 
     public HelpCommand(User client, String args, NNTPServer server) throws IOException {

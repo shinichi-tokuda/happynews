@@ -23,7 +23,7 @@ import java.util.regex.Matcher;
  *          RM ../<83@netcabo.pt>
  * Permission: Editor
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class RmCommand extends Command {
 
     /** Used to validate article ids */

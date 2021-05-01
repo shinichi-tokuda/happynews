@@ -21,7 +21,7 @@ import java.util.*;
  * Example: NEWNEWS alt.tv.twin-peaks,alt.tv.evangelion 930130 123000
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class NewnewsCommand extends Command {
 
     public NewnewsCommand(User client, String args, NNTPServer server) throws IOException {

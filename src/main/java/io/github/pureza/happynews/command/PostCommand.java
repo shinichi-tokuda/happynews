@@ -33,7 +33,7 @@ import org.slf4j.LoggerFactory;
  * Usage:   POST
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class PostCommand extends Command {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

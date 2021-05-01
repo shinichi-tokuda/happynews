@@ -16,7 +16,7 @@ import java.io.IOException;
  * Usage: IHAVE <article-id>
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class IhaveCommand extends Command {
 
     public IhaveCommand(User client, String args, NNTPServer server) throws IOException {

@@ -18,7 +18,7 @@ import java.io.IOException;
  * Example: USERLIST
  * Permission: Admin
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class UserlistCommand extends Command {
 
     public UserlistCommand(User client, String args, NNTPServer server) throws IOException {

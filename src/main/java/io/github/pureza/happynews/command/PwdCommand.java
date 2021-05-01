@@ -15,7 +15,7 @@ import io.github.pureza.happynews.server.NNTPServer;
  * Usage:   PWD
  * Permission: Editor
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class PwdCommand extends Command {
 
     public PwdCommand(User client, String args, NNTPServer server) throws IOException {

@@ -16,7 +16,7 @@ import java.io.IOException;
  * Example: USERRM john
  * Permission: Admin
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class UserrmCommand extends Command {
 
     public UserrmCommand(User client, String args, NNTPServer server) throws IOException {

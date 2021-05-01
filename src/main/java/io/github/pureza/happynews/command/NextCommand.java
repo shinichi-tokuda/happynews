@@ -19,7 +19,7 @@ import io.github.pureza.happynews.newsgroup.Article;
  * Usage:   NEXT
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class NextCommand extends Command {
 
     public NextCommand(User client, String args, NNTPServer server) throws IOException {

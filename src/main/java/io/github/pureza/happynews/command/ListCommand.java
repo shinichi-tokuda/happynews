@@ -18,7 +18,7 @@ import io.github.pureza.happynews.user.Editor;
  * Usage:   LIST
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class ListCommand extends Command {
 
     public ListCommand(User client, String args, NNTPServer server) throws IOException {

@@ -24,7 +24,7 @@ import io.github.pureza.happynews.newsgroup.Article;
  * See also: Command FIND
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class FindheaderCommand extends Command {
 
     public FindheaderCommand(User client, String args, NNTPServer server) throws IOException {

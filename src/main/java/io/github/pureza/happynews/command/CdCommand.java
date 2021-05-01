@@ -20,7 +20,7 @@ import java.nio.file.Path;
  *          CD ../../twin-peaks
  * Permission: Editor
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class CdCommand extends Command {
 
     public CdCommand(User client, String args, NNTPServer server) throws IOException {

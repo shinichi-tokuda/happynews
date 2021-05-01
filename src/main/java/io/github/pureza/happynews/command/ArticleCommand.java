@@ -29,7 +29,7 @@ import java.io.IOException;
  * See also: Commands BODY, HEAD, STAT, NEXT, LAST
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class ArticleCommand extends Command {
 
     /** Validator for article ids */

@@ -15,7 +15,7 @@ import java.io.IOException;
  * Example: NEWGROUP alt.tv.twin-peaks
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class NewgroupCommand extends Command {
 
     public NewgroupCommand(User client, String args, NNTPServer server) throws IOException {

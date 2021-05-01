@@ -29,7 +29,7 @@ import io.github.pureza.happynews.validation.ArticleValidator;
  * See also: Command BODY, ARTICLE, STAT, NEXT, LAST
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class HeadCommand extends Command {
 
     /** Validator for article ids */

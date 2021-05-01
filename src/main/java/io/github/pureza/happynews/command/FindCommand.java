@@ -22,7 +22,7 @@ import java.util.Set;
  * See also: Command FINDHEADER
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class FindCommand extends Command {
 
     public FindCommand(User client, String args, NNTPServer server) throws IOException {

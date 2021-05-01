@@ -19,7 +19,7 @@ import java.io.IOException;
  * Example: GROUP alt.tv.twin-peaks
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class GroupCommand extends Command {
 
     public GroupCommand(User client, String args, NNTPServer server) throws IOException {

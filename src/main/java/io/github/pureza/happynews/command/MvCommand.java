@@ -23,7 +23,7 @@ import org.slf4j.LoggerFactory;
  *          MV ../<83@netcabo.pt> .
  * Permission: Editor
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class MvCommand extends Command {
 
     /** Used to validate article ids */

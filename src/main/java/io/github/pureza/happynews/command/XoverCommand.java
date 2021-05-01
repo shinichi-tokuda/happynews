@@ -20,7 +20,7 @@ import java.io.IOException;
  * See also: Command HEAD
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class XoverCommand extends Command {
 
     public XoverCommand(User client, String args, NNTPServer server) throws IOException {

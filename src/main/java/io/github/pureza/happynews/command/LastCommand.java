@@ -18,7 +18,7 @@ import java.io.IOException;
  * Usage:   LAST
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class LastCommand extends Command {
 
     public LastCommand(User client, String args, NNTPServer server) throws IOException {

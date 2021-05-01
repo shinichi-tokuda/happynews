@@ -18,7 +18,7 @@ import java.io.IOException;
  * Usage: MODE reader
  * Permission: Reader
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class ModeCommand extends Command {
 
     public ModeCommand(User client, String args, NNTPServer server) throws IOException {

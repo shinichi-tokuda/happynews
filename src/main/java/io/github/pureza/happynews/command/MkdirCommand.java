@@ -20,7 +20,7 @@ import java.nio.file.Path;
  * Example: MKDIR bored
  * Permission: Editor
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class MkdirCommand extends Command {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());

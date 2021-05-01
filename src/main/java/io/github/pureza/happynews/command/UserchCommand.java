@@ -17,7 +17,7 @@ import java.util.Locale;
  * Example: USERCH john Admin
  * Permission: Admin
  */
-@SuppressWarnings("unused")
+@SuppressWarnings({"unused", "RedundantSuppression"})
 public class UserchCommand extends Command {
     public UserchCommand(User client, String args, NNTPServer server) throws IOException {
         super(client, args, server);
