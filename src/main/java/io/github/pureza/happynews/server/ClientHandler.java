@@ -81,9 +81,9 @@ public class ClientHandler extends Thread {
     /**
      * Authenticates the user
      *
+     * @param in  {@link BufferedReader}
+     * @param out {@link PrintStream}
      * @throws InvalidLoginException if the authentication credentials are wrong
-     * @param in
-     * @param out
      */
     void authenticate(BufferedReader in, PrintStream out) throws IOException, InvalidLoginException {
         String authInfoUser;
