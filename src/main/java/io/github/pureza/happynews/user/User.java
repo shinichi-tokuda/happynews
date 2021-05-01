@@ -1,5 +1,7 @@
 package io.github.pureza.happynews.user;
 
+import org.jetbrains.annotations.NotNull;
+
 import io.github.pureza.happynews.newsgroup.Newsgroup;
 
 import java.net.Socket;
@@ -122,6 +124,7 @@ public abstract class User {
     }
 
 
+    @NotNull
     @Override
     public String toString() {
         return "User{" +

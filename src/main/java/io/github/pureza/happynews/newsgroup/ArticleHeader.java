@@ -1,5 +1,6 @@
 package io.github.pureza.happynews.newsgroup;
 
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -90,6 +91,7 @@ public class ArticleHeader {
     }
 
 
+    @NotNull
     @Override
     public String toString() {
         return headerText.toString();

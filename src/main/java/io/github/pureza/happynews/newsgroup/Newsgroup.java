@@ -1,5 +1,7 @@
 package io.github.pureza.happynews.newsgroup;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.*;
 import java.io.*;
 
@@ -179,6 +181,7 @@ public class Newsgroup implements Serializable {
     }
 
 
+    @NotNull
     @Override
     public String toString() {
         return "Newsgroup{" +
