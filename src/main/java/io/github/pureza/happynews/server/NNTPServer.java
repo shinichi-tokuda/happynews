@@ -36,13 +36,13 @@ public class NNTPServer extends Thread {
     private final ArticleRepository articleRepository;
 
     /** The server's socket */
-    private ServerSocket server;
+    private final ServerSocket server;
 
     /** Application configuration */
-    private Config config;
+    private final Config config;
 
     /** The logger */
-    private Logger logger = LoggerFactory.getLogger(NNTPServer.class);
+    private final Logger logger = LoggerFactory.getLogger(NNTPServer.class);
 
 
     /**

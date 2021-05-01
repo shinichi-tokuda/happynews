@@ -33,7 +33,7 @@ import java.io.IOException;
 public class ArticleCommand extends Command {
 
     /** Validator for article ids */
-    private ArticleValidator articleValidator = new ArticleValidator();
+    private final ArticleValidator articleValidator = new ArticleValidator();
 
 
     public ArticleCommand(User client, String args, NNTPServer server) throws IOException {

@@ -27,7 +27,7 @@ import java.util.regex.Matcher;
 public class RmCommand extends Command {
 
     /** Used to validate article ids */
-    private ArticleValidator articleValidator = new ArticleValidator();
+    private final ArticleValidator articleValidator = new ArticleValidator();
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 

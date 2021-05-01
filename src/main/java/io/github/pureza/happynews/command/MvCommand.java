@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 public class MvCommand extends Command {
 
     /** Used to validate article ids */
-    private ArticleValidator articleValidator = new ArticleValidator();
+    private final ArticleValidator articleValidator = new ArticleValidator();
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 

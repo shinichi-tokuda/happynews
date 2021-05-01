@@ -27,7 +27,7 @@ public class Article {
     private final File articleFile;
 
     /** Used to validate article ids */
-    private ArticleValidator articleValidator = new ArticleValidator();
+    private final ArticleValidator articleValidator = new ArticleValidator();
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 

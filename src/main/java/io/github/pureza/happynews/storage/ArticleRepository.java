@@ -32,10 +32,10 @@ import static java.util.stream.Collectors.toMap;
 public class ArticleRepository {
 
     /** Used to validate article components */
-    private ArticleValidator articleValidator = new ArticleValidator();
+    private final ArticleValidator articleValidator = new ArticleValidator();
 
     /** Application configuration */
-    private Config config;
+    private final Config config;
 
     /**
      * Articles, grouped by id

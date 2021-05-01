@@ -32,7 +32,7 @@ import java.io.IOException;
 public class BodyCommand extends Command {
 
     /** Validator for article ids */
-    private ArticleValidator articleValidator = new ArticleValidator();
+    private final ArticleValidator articleValidator = new ArticleValidator();
 
 
     public BodyCommand(User client, String args, NNTPServer server) throws IOException {

@@ -31,7 +31,7 @@ import static java.util.stream.Collectors.toMap;
 public class UserRepository {
 
     /** Application configuration */
-    private Config config;
+    private final Config config;
 
     /**
      * Users, grouped by username
@@ -40,10 +40,10 @@ public class UserRepository {
     private final Map<String, User> users = new HashMap<>();
 
     /** Used to validate usernames and passwords */
-    private UserValidator validator = new UserValidator();
+    private final UserValidator validator = new UserValidator();
 
     /** Used to generate salts */
-    private SecureRandom secureRandom = new SecureRandom();
+    private final SecureRandom secureRandom = new SecureRandom();
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
