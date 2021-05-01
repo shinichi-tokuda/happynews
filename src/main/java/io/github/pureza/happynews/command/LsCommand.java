@@ -6,7 +6,6 @@ import io.github.pureza.happynews.server.NNTPServer;
 import io.github.pureza.happynews.user.Editor;
 import io.github.pureza.happynews.user.User;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -68,7 +67,7 @@ public class LsCommand extends Command {
 
             Files.list(path).forEach(article -> {
                 if (Files.isDirectory(article)) {
-                    out.print(article.getFileName().toString() + File.separator + "\n");
+                    out.print(article.getFileName().toString() + "/\n");
                 } else {
                     StringBuilder output = new StringBuilder("<").append(article.getFileName()).append(">");
                     if (detailed) {
