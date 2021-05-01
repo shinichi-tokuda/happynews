@@ -115,6 +115,7 @@ public class Newsgroup implements Serializable {
     /**
      * Checks if there is an article after the given one
      */
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean hasNext(int curIndex) {
         return containsArticleNum(curIndex + 1);
     }
@@ -137,6 +138,7 @@ public class Newsgroup implements Serializable {
     /**
      * Checks if there is an article before the given one
      */
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean hasPrevious(int curIndex) {
         return containsArticleNum(curIndex - 1);
     }
