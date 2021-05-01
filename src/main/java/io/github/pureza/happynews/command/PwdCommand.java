@@ -34,6 +34,6 @@ public class PwdCommand extends Command {
         Path path = editor.getPath();
         Path relativePath = config().usersHome().relativize(path);
 
-        out.print("289 /" + relativePath.toString() + "\n");
+        out.print("289 /" + relativePath.toString().replaceAll("\\\\", "/") + "\n");
     }
 }
