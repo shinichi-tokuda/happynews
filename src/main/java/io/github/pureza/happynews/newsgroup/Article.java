@@ -87,6 +87,7 @@ public class Article {
     /**
      * Return the article body
      */
+    @SuppressWarnings("StatementWithEmptyBody")
     public String getBody() {
         StringBuilder body = new StringBuilder();
         try {
