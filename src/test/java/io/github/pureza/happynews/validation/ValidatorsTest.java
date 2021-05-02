@@ -15,7 +15,7 @@ public class ValidatorsTest {
 
 
     @Test
-    public void validateDotsReffusesInvalidTextWithDots() {
+    public void validateDotsRefusesInvalidTextWithDots() {
         assertThat(Validators.validateDots(""), is(false));
         assertThat(Validators.validateDots("."), is(false));
         assertThat(Validators.validateDots(".abc"), is(false));

@@ -49,7 +49,7 @@ public class NewsgroupValidatorTest {
 
 
     @Test
-    public void isValidListOfNewsgroupNamesReffusesInvalidList() {
+    public void isValidListOfNewsgroupNamesRefusesInvalidList() {
         assertThat(new NewsgroupValidator().isValidListOfNewsgroupNames(""), is(false));
         assertThat(new NewsgroupValidator().isValidListOfNewsgroupNames(","), is(false));
         assertThat(new NewsgroupValidator().isValidListOfNewsgroupNames(",,"), is(false));

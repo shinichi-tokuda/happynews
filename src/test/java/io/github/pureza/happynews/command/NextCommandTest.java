@@ -73,7 +73,7 @@ public class NextCommandTest extends AbstractTest {
 
 
     @Test
-    public void movesToMextArticleOnSuccess() throws Exception {
+    public void movesToNextArticleOnSuccess() throws Exception {
         Newsgroup group = new Newsgroup("group", date(2004, 10, 3, 10, 20), asList("<1@host>", "<2@host>"));
 
         when(server.getArticle("<2@host>")).thenReturn(new Article("<2@host>", config.articlesHome()));

@@ -140,7 +140,7 @@ public class GroupRepository {
 
             logger.info("{} groups loaded", groups.size());
         } catch (IOException ex) {
-            logger.error("An error occurred whlie reading the list of groups from {}", config.groupsFile(), ex);
+            logger.error("An error occurred while reading the list of groups from {}", config.groupsFile(), ex);
         }
 
         return groups;
