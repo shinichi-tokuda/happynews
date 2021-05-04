@@ -46,7 +46,7 @@ public class MvCommand extends Command {
 
         // Check if the command is well formed
         if (args.length != 3) {
-            out.print("501 command syntax error. args.length=" + args.length + "\n");
+            out.print("501 command syntax error\n");
             return;
         }
 
@@ -60,7 +60,7 @@ public class MvCommand extends Command {
             fileName = matcher.group(1) + "@" + matcher.group(2);
         }
         if (fileName.isEmpty()) {
-            out.print("501 command syntax error. fileName.isEmpty()\n");
+            out.print("501 command syntax error\n");
         }
         String articleId = "<" + fileName + ">";
 
@@ -69,7 +69,7 @@ public class MvCommand extends Command {
 
         // Check if the article id follows the <id@host> format
         if (!(articleValidator.isValidArticleId(articleId))) {
-            out.print("501 command syntax error. !isValidArticleId\n");
+            out.print("501 command syntax error\n");
             return;
         }
 

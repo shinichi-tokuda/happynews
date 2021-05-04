@@ -57,7 +57,7 @@ public class RmCommand extends Command {
             fileName = matcher.group(1) + "@" + matcher.group(2);
         }
         if (fileName.isEmpty()) {
-            out.print("501 command syntax error. fileName.isEmpty()\n");
+            out.print("501 command syntax error\n");
         }
         String articleId = "<" + fileName + ">";
 
